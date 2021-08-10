@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/7221484698.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static 'cust.css' %}">
+  <link rel="icon" href="{% static 'logo.png' %}">
+  <title>ZII|transacations</title>
+</head>
+<body class="main">
+  <main style="overflow-x: hidden;">
+    <nav>
+      <div class="logo"><img src="{% static 'logo.png' %}" alt=""></div>
+      <a href="/"><img src="{% static 'home.png' %}" alt="" class="icons filter"></a>
+      <a href="customer"><img src="{% static 'dashboard.png' %}" alt="" class="icons filter "></a>
+      <a href="#"><img src="{% static 'stats.png' %}" alt="" class="icons filter active"></a>
+      <a href="#"><img src="{% static 'customer-care.png' %}" alt="" class="icons filter"></a>
+    </nav>
+    <section>
+      <table class="table1">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Deposit</th>
+            <th>Withdrawl</th>
+            <th>Balance</th>
+          </tr>
+        </thead>
+      
+        <body>
+          {% for i in transact %}
+          <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.deb_amt}}</td>
+            <td>{{i.cr_amt}}</td>
+            <td>{{i.acc_bal}}₹</td>
+          </tr>
+          {% endfor %}
+        </body>
+      
+      </table>
+    </section>
+  </main>
+</body>
+</html>

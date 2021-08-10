@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/7221484698.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static 'index.css' %}">
+  <link rel="icon" href="{% static 'logo.png' %}">
+  <title>City Bank</title>
+</head>
+<body>
+  <main>
+    <nav>
+      <h1>ZII Bank</h1>
+      <div>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Offers</a></li>
+          <li><a href="#">Business</a></li>
+        </ul>
+      </div>
+      <div class="search">
+        <input type="text">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+    </nav>
+    <article>
+      <h1>The most <br> transparent <br> & security <br> banking ever</h1>
+      <p><small>Order a card and more than 20 unique <br> features worldwide</small></p>
+      <button ><a href="customer">Get Started</a><span><i class="fas fa-arrow-right"></i></span></button>
+    </article>
+  </main>
+</body>
+</html>

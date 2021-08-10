@@ -1,0 +1,93 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/7221484698.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static 'cust.css' %}">
+  <link rel="icon" href="{% static 'logo.png' %}">
+  <title>ZII|customers</title>
+</head>
+<body class="main">
+  <main style="overflow-x: hidden;">
+    <nav>
+      <div class="logo"><img src="{% static 'logo.png' %}" alt=""></div>
+      <a href="/"><img src="{% static 'home.png' %}" alt="" class="icons filter"></a>
+      <a href="#"><img src="{% static 'dashboard.png' %}" alt="" class="icons filter active"></a>
+      <a href="transactions"><img src="{% static 'stats.png' %}" alt="" class="icons filter"></a>
+      <a href="#"><img src="{% static 'customer-care.png' %}" alt="" class="icons filter"></a>
+    </nav>
+    <setion class="middle">
+      <h1>Personal Cards</h1>
+      <div class="cards">
+        <img class="card1" src="{% static 'deb2.png' %}" width="300px" alt="">
+        <img class="card1" src="{% static 'debit1.png' %}" width="300px" alt="">
+      </div>
+      <h2>Last Transactions</h2>
+      <table class="table1">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Acc. Bal</th>
+          </tr>
+        </thead>
+      
+        <body>
+          {% for i in cust %}
+          <tr>
+            <td>{{ i.name }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.curr_bal }}Cr.</td>
+          </tr>
+          {% endfor %}
+        </body>
+      </table>
+    </setion>
+    <aside>
+      <div class="profile">
+        <p>Hello, Harrison</p>
+        <!-- <img class="flag" src="{% static 'india.png' %}" alt=""> -->
+        <img class='avatar' src="{% static 'profile.jpg' %}" width="50px" height="50px" alt="">
+        <div class="dot"></div>
+      </div>
+      <h1>Make Payement</h1>
+      <div class="payment">
+        <form action="customer" method="POST">
+          {% csrf_token %}
+          <label for="semail">Sender's email:</label>
+          <input type="email" placeholder="abc@gmail.com" name="semail" >
+          <label for="amt">Amount:</label>
+          <input type="number" placeholder="3400" name="amt">
+          <select id="email" name="email">
+            <option value="satyaprajna1313@gmail.com">Select Reciever Email</option>
+            {% for i in cust %}
+            <option value="{{ i.email }}">{{ i.name }}</option>
+            {% endfor %}
+            <input class="button" type="submit" value="Send">
+          </select>
+        </form>
+      </div>
+      <h1 class="ex">Last Month Expense</h1>
+      <div class="graph">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="high"></div>
+        <div class="three"></div>
+        <div class="four"></div>
+      </div>
+    </aside>
+  </main>
+</body>
+<script>
+  const send_btn = document.querySelector(".button")
+  send_btn.addEventListener('click',() => {
+    // console.log(send_btn)
+    window.alert('Send money?')
+  })
+  
+</script>
+</html>
